@@ -885,7 +885,9 @@ function _strReplaceMapPrepare( o )
         let ins = d[ 0 ];
         let sub = d[ 1 ];
         _.assert( d.length === 2 );
-        _.assert( !( _.arrayIs( ins ) ^ _.arrayIs( sub ) ) );
+        // _.assert( !( _.arrayIs( ins ) ^ _.arrayIs( sub ) ) );
+        // debugger;
+        _.assert( _.arrayIs( ins ) === _.arrayIs( sub ) );
         if( _.arrayIs( ins ) )
         {
           _.assert( ins.length === sub.length )
@@ -1281,8 +1283,9 @@ function strSorterParse( o )
     let field = splitted[ i ];
     let postfix = splitted[ i + 1 ];
 
-    _.assert( o.fields ? o.fields[ field ] : true, 'Field: ', field, ' is not allowed.' );
+    _.assert( o.fields ? !!o.fields[ field ] : true, 'Field: ', field, ' is not allowed.' );
     _.assert( _.strIs( postfix ), 'Field: ', field, ' doesn\'t have a postfix.' );
+    /* qqq : for junior : use template-string where it is required */
 
     let valueForPostfix = map[ postfix ];
 

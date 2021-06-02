@@ -931,7 +931,7 @@ let DissectorExtension =
 
 }
 
-_.props.extend( _.dissector, DissectorExtension );
+/* _.props.extend */Object.assign( _.dissector, DissectorExtension );
 
 // --
 // export
