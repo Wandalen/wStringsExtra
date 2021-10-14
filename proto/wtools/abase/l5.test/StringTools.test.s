@@ -5253,8 +5253,9 @@ function strSearchLog( test )
   test.shouldThrowErrorSync( () => _.strSearchLog( { src : 'abcabcabc', ins : [ 'bc' ], gray : 1 }, 13 ) );
 
   test.close( 'throwing' );
-
 }
+
+strSearchLog.timeOut = 10000;
 
 //
 
@@ -14699,19 +14700,26 @@ function strRequestParseWithOptionsQuotingAndUnqoting( test )
 
 function strRequestParseExperiment( test )
 {
-  test.case = 'positive number in option';
-  var got = _.strRequestParse( 'n:1 rapidity:9' );
+  test.case = 'parse two simple options';
+  var got = _.strRequestParse( 'n:1 r:2' );
   test.identical( got.subject, '' )
-  test.identical( got.map, { 'n' : 1, 'rapidity' : 9 } )
+  test.identical( got.map, { 'n' : 1, 'r' : 2 } )
   test.identical( got.subjects, [ '' ] )
-  test.identical( got.maps, [ { 'n' : 1, 'rapidity' : 9 } ] );
+  test.identical( got.maps, [ { 'n' : 1, 'r' : 2 } ] );
 
-  test.case = 'negative number in option';
-  var got = _.strRequestParse( 'n:1 rapidity:-9' );
+  test.case = 'parse simple option and vectorized option';
+  var got = _.strRequestParse( 'n:1 r:"[ 2, 3 ]"' );
   test.identical( got.subject, '' )
-  test.identical( got.map, { 'n' : 1, 'rapidity' : -9 } )
+  test.identical( got.map, { 'n' : 1, 'r' : [ 2, 3 ] } )
   test.identical( got.subjects, [ '' ] )
-  test.identical( got.maps, [ { 'n' : 1, 'rapidity' : -9 } ] )
+  test.identical( got.maps, [ { 'n' : 1, 'r' : [ 2, 3 ] } ] );
+
+  test.case = 'parse vectorized option and simple option';
+  var got = _.strRequestParse( 'r:"[ ab, cd ]" n:1' );
+  test.identical( got.subject, '' )
+  test.identical( got.map, { 'n' : 1, 'r' : [ 'ab', 'cd' ] } )
+  test.identical( got.subjects, [ '' ] )
+  test.identical( got.maps, [ { 'n' : 1, 'r' : [ 'ab', 'cd' ] } ] );
 }
 
 strRequestParseExperiment.experimental = 1;
