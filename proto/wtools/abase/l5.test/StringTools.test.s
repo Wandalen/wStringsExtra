@@ -8681,6 +8681,8 @@ function strReplaceAllOptionOnUnknown( test )
   test.close( 'onUnknown returns element and map ins[ 0 ]' );
 }
 
+strReplaceAllOptionOnUnknown.timeOut = 10000;
+
 //
 
 function strTokenizeJs( test )

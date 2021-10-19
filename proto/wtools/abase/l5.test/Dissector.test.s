@@ -840,9 +840,6 @@ function dissectBasic( test )
 
 function dissectAny( test )
 {
-
-  /* */
-
   test.case = `<r1>**<r2> -- r1abcr2`;
   var text = 'r1abcr2';
   var code = `<r1>**<r2>`;
@@ -1745,10 +1742,9 @@ function dissectAny( test )
 
   test.description = 'matched';
   test.identical( dissection.matched, false );
-
-  /* */
-
 }
+
+dissectAny.timeOut = 10000;
 
 //
 
