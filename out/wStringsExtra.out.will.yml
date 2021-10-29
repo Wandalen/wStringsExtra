@@ -3,8 +3,8 @@ root:
   - wStringsExtra.out
 consistency:
   ../will.yml: &ref_0
-    hash: 4f95a2257ad24d2fcf779550a12fc585
-    size: 6866
+    hash: 44ce3dd6bff39b319b27804da678a40c
+    size: 6725
 module:
   wStringsExtra.out:
     about:
@@ -387,9 +387,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -725,12 +722,6 @@ module:
           - 'step::doc.export'
         criterion:
           content: doc
-          export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
           export: 1
       export:
         steps:
@@ -1097,9 +1088,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -1436,12 +1424,6 @@ module:
         criterion:
           content: doc
           export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
-          export: 1
       export:
         steps:
           - 'build::proto.export'
@@ -1499,5 +1481,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 4f95a2257ad24d2fcf779550a12fc585
-        size: 6866
+        hash: 44ce3dd6bff39b319b27804da678a40c
+        size: 6725
