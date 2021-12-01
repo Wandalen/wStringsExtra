@@ -3,8 +3,8 @@ root:
   - wStringsExtra.out
 consistency:
   ../will.yml: &ref_0
-    hash: 44ce3dd6bff39b319b27804da678a40c
-    size: 6725
+    hash: c8f14e3d160f35a6dd0d0d17d9c7b849
+    size: 6733
 module:
   wStringsExtra.out:
     about:
@@ -1481,5 +1481,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 44ce3dd6bff39b319b27804da678a40c
-        size: 6725
+        hash: c8f14e3d160f35a6dd0d0d17d9c7b849
+        size: 6733
