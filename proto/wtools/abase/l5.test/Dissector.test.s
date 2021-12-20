@@ -1744,7 +1744,7 @@ function dissectAny( test )
   test.identical( dissection.matched, false );
 }
 
-dissectAny.timeOut = 10000;
+dissectAny.timeOut = 30000;
 
 //
 
